@@ -9,3 +9,14 @@ As of grpc-js 1.10.6, that feature hasn't been released, so the PR changes must 
 
 ## Client (parent process)
 Uses https://github.com/grpc/grpc-node/issues/2038#issuecomment-1461728728 to allow using the child process's stdio streams instead of a TCP connection. This technique isn't robust; it relies on the presence of a `secureContext` object to cause an particular internal code path to be taken in https://github.com/grpc/grpc-node/blob/master/packages/grpc-js/src/transport.ts.
+
+## Background information
+
+On the suitability of anonymous pipes and gRPC for the use case:
+
+* https://learn.microsoft.com/en-gb/aspnet/core/grpc/comparison?view=aspnetcore-8.0#grpc-recommended-scenarios
+* https://learn.microsoft.com/en-us/dotnet/standard/io/pipe-operations
+
+On the .NET support for custom IPC transports for gRPC:
+
+* https://learn.microsoft.com/en-gb/aspnet/core/grpc/interprocess?view=aspnetcore-8.0
